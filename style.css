@@ -1,0 +1,998 @@
+/* ==========================================
+   T AAKASH PORTFOLIO - STYLE.CSS
+   Week 2: CSS Styling Your Website
+   Features: Responsive Design, Hover Effects, Flexbox/Grid
+   ========================================== */
+
+/* GOOGLE FONTS IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
+
+/* ==========================================
+   1. RESET & CSS VARIABLES (Universal Selector)
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ROOT VARIABLES - Color Scheme */
+:root {
+  /* Backgrounds */
+  --bg: #020205;
+  --s1: #07070f;
+  --border: #161628;
+  
+  /* Colors */
+  --pu: #8b5cf6;      /* Purple */
+  --pi: #ec4899;      /* Pink */
+  --cy: #06b6d4;      /* Cyan */
+  --gr: #10b981;      /* Green */
+  --or: #f59e0b;      /* Orange */
+  
+  /* Text */
+  --tx: #e2e8f0;      /* Text */
+  --mu: #475569;      /* Muted */
+  --mu2: #334155;     /* Muted Dark */
+  
+  /* Fonts */
+  --mono: 'Space Mono', monospace;
+  --sans: 'Syne', sans-serif;
+  
+  /* Transitions */
+  --trans: 0.2s ease;
+}
+
+/* ==========================================
+   2. BODY & MAIN CONTAINER
+   ========================================== */
+body {
+  background: var(--bg);
+  color: var(--tx);
+  font-family: var(--mono);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.port {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   3. HERO SECTION
+   ========================================== */
+.hero {
+  padding: 2.5rem 2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow effects with Pseudo-elements */
+.glow1 {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.glow2 {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Badge styling */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0a0a16;
+  border: 1px solid #1a1a30;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.62rem;
+  color: var(--gr);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  transition: all var(--trans);
+}
+
+.badge:hover {
+  background: #0f0f1a;
+  border-color: var(--gr);
+  transform: scale(1.05);
+}
+
+/* Pulse animation */
+.pulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gr);
+  animation: pu 2s infinite;
+}
+
+@keyframes pu {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Hero name styling - Gradient text effect */
+.hero-name {
+  font-family: var(--sans);
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.hi {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--mu);
+  font-weight: 400;
+  display: block;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.name-text {
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4, #10b981, #f59e0b, #ec4899, #8b5cf6);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: nameShift 6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes nameShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-role {
+  font-size: 0.7rem;
+  color: var(--cy);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.hero-loc {
+  font-size: 0.68rem;
+  color: var(--mu);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+}
+
+.hero-desc {
+  font-size: 0.72rem;
+  color: var(--mu);
+  line-height: 1.9;
+  max-width: 500px;
+  margin-bottom: 1.4rem;
+}
+
+/* Button styling with hover effects */
+.btns {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+/* Primary button */
+.bp {
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(135deg, var(--pu), var(--cy));
+  color: #020205;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all var(--trans);
+}
+
+.bp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+}
+
+.bp:active {
+  transform: translateY(0);
+}
+
+/* Outline button */
+.bo {
+  padding: 0.6rem 1.4rem;
+  background: transparent;
+  color: var(--tx);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all var(--trans);
+}
+
+.bo:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: var(--pu);
+  color: var(--pu);
+  transform: translateY(-2px);
+}
+
+/* Stats section - CSS Grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.6rem;
+}
+
+.sbox {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  padding: 0.7rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: all var(--trans);
+}
+
+.sbox:hover {
+  background: rgba(139, 92, 246, 0.05);
+  border-color: var(--pu);
+  transform: translateY(-2px);
+}
+
+.sn {
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sl {
+  font-size: 0.58rem;
+  color: var(--mu);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+}
+
+/* ==========================================
+   4. TICKER SECTION (Scrolling Skills)
+   ========================================== */
+.ticker {
+  background: var(--s1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0.55rem 0;
+  overflow: hidden;
+}
+
+.ti {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: tk 20s linear infinite;
+}
+
+@keyframes tk {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ti-item {
+  font-size: 0.62rem;
+  color: var(--mu2);
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+}
+
+.ti-d {
+  color: var(--pu);
+  margin-right: 0.4rem;
+}
+
+/* ==========================================
+   5. SECTIONS - Generic Styling
+   ========================================== */
+.sec {
+  padding: 1.75rem 2rem;
+}
+
+.sep {
+  border-top: 1px solid var(--border);
+}
+
+/* Section headings with pseudo-elements */
+.sh {
+  font-size: 0.6rem;
+  color: var(--cy);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sh::before {
+  content: '';
+  width: 0.75rem;
+  height: 1px;
+  background: var(--cy);
+}
+
+/* ==========================================
+   6. SKILLS SECTION
+   ========================================== */
+.sk-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sk-cat-title {
+  font-size: 0.6rem;
+  color: var(--or);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sk-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Skill chips with color variants */
+.sk-chip {
+  font-size: 0.62rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--tx);
+  background: var(--s1);
+  transition: all var(--trans);
+}
+
+.sk-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.sk-chip.pu {
+  background: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+.sk-chip.pu:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: #a78bfa;
+}
+
+.sk-chip.cy {
+  background: rgba(6, 182, 212, 0.1);
+  color: #22d3ee;
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.sk-chip.cy:hover {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: #22d3ee;
+}
+
+.sk-chip.gr {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.sk-chip.gr:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #34d399;
+}
+
+.sk-chip.or {
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.sk-chip.or:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #fbbf24;
+}
+
+.sk-chip.pi {
+  background: rgba(236, 72, 153, 0.1);
+  color: #f472b6;
+  border-color: rgba(236, 72, 153, 0.25);
+}
+
+.sk-chip.pi:hover {
+  background: rgba(236, 72, 153, 0.2);
+  border-color: #f472b6;
+}
+
+/* ==========================================
+   7. PROJECTS SECTION - CSS Grid Layout
+   ========================================== */
+.pg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.6rem;
+}
+
+.pc {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  padding: 1.1rem;
+  border-radius: 8px;
+  border-top: 2px solid transparent;
+  transition: all var(--trans);
+  cursor: pointer;
+}
+
+.pc:hover {
+  transform: translateY(-4px);
+  background: rgba(139, 92, 246, 0.05);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+}
+
+.pc.pu { border-top-color: var(--pu); }
+.pc.pi { border-top-color: var(--pi); }
+.pc.cy { border-top-color: var(--cy); }
+.pc.gr { border-top-color: var(--gr); }
+.pc.or { border-top-color: var(--or); }
+
+.pn {
+  font-size: 0.58rem;
+  color: var(--mu2);
+  margin-bottom: 0.6rem;
+  opacity: 0.7;
+}
+
+.pt {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.pd {
+  font-size: 0.67rem;
+  color: var(--mu);
+  line-height: 1.7;
+  margin-bottom: 0.65rem;
+}
+
+.ptags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.ptag {
+  font-size: 0.58rem;
+  padding: 2px 7px;
+  border-radius: 20px;
+  transition: all var(--trans);
+}
+
+.ptag.pu {
+  background: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.ptag.pu:hover {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.ptag.pi {
+  background: rgba(236, 72, 153, 0.1);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+.ptag.pi:hover {
+  background: rgba(236, 72, 153, 0.2);
+}
+
+.ptag.cy {
+  background: rgba(6, 182, 212, 0.1);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.ptag.cy:hover {
+  background: rgba(6, 182, 212, 0.2);
+}
+
+.ptag.gr {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.ptag.gr:hover {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.ptag.or {
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.ptag.or:hover {
+  background: rgba(245, 158, 11, 0.2);
+}
+
+/* ==========================================
+   8. EXPERIENCE SECTION
+   ========================================== */
+.exp-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.85rem;
+  border-top: 1px solid var(--border);
+  padding: 0.9rem 0;
+  transition: all var(--trans);
+}
+
+.exp-item:hover {
+  color: var(--cy);
+}
+
+.ed {
+  font-size: 0.6rem;
+  color: var(--mu2);
+  padding-top: 2px;
+}
+
+.er {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.ec {
+  font-size: 0.65rem;
+  margin-bottom: 0.4rem;
+}
+
+.edesc {
+  font-size: 0.65rem;
+  color: var(--mu);
+  line-height: 1.8;
+}
+
+/* ==========================================
+   9. EDUCATION SECTION
+   ========================================== */
+.edu-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.85rem;
+  border-top: 1px solid var(--border);
+  padding: 0.9rem 0;
+  transition: all var(--trans);
+}
+
+.edu-item:hover {
+  padding-left: 0.5rem;
+}
+
+.edu-yr {
+  font-size: 0.6rem;
+  color: var(--mu2);
+  padding-top: 2px;
+}
+
+.edu-deg {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.edu-inst {
+  font-size: 0.65rem;
+  margin-bottom: 0.3rem;
+}
+
+.edu-note {
+  font-size: 0.63rem;
+  color: var(--mu);
+  line-height: 1.7;
+}
+
+/* ==========================================
+   10. CERTIFICATIONS SECTION - CSS Grid
+   ========================================== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.cert-card {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-left: 2px solid transparent;
+  transition: all var(--trans);
+}
+
+.cert-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+}
+
+.cert-card.pu { border-left-color: var(--pu); }
+.cert-card.cy { border-left-color: var(--cy); }
+.cert-card.gr { border-left-color: var(--gr); }
+.cert-card.or { border-left-color: var(--or); }
+.cert-card.pi { border-left-color: var(--pi); }
+
+.cert-name {
+  font-size: 0.68rem;
+  color: var(--tx);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.cert-by {
+  font-size: 0.6rem;
+  color: var(--mu);
+}
+
+/* ==========================================
+   11. ACHIEVEMENTS SECTION
+   ========================================== */
+.ach-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ach-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.65rem 0.85rem;
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all var(--trans);
+}
+
+.ach-item:hover {
+  background: rgba(139, 92, 246, 0.05);
+  border-color: var(--pu);
+  padding-left: 1.2rem;
+}
+
+.ach-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.ach-text {
+  font-size: 0.68rem;
+  color: var(--mu);
+  line-height: 1.7;
+}
+
+/* ==========================================
+   12. CONTACT SECTION
+   ========================================== */
+.csec {
+  background: var(--s1);
+  border-top: 1px solid var(--border);
+  padding: 1.75rem 2rem;
+}
+
+.ch {
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.ch span {
+  color: var(--cy);
+}
+
+.cp {
+  font-size: 0.68rem;
+  color: var(--mu);
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+}
+
+/* Contact links with hover effects */
+.cl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.7rem;
+  color: var(--tx);
+  text-decoration: none;
+  transition: all var(--trans);
+}
+
+.cl:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.cl:hover {
+  color: var(--pu);
+  padding-left: 0.5rem;
+}
+
+.cb {
+  font-size: 0.58rem;
+  color: var(--mu2);
+}
+
+/* ==========================================
+   13. FOOTER
+   ========================================== */
+.foot {
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.foot p {
+  font-size: 0.6rem;
+  color: var(--mu2);
+}
+
+.fn {
+  background: linear-gradient(90deg, var(--pu), var(--cy));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================
+   14. RESPONSIVE DESIGN - MEDIA QUERIES
+   ========================================== */
+
+/* Tablet devices (768px and below) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+  }
+
+  .btns {
+    gap: 0.5rem;
+  }
+
+  .bp, .bo {
+    padding: 0.5rem 1rem;
+    font-size: 0.65rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .pg {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sec {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .foot {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .foot p {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Mobile devices (480px and below) */
+@media (max-width: 480px) {
+  * {
+    font-size: 0.9rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .hero-name {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .hi {
+    font-size: 0.65rem;
+  }
+
+  .hero-role {
+    font-size: 0.65rem;
+  }
+
+  .hero-loc {
+    font-size: 0.6rem;
+  }
+
+  .hero-desc {
+    font-size: 0.65rem;
+  }
+
+  .badge {
+    font-size: 0.55rem;
+    padding: 3px 10px;
+  }
+
+  .btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bp, .bo {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.65rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .sec {
+    padding: 1.25rem 1rem;
+  }
+
+  .csec {
+    padding: 1.25rem 1rem;
+  }
+
+  .ch {
+    font-size: 1.2rem;
+  }
+
+  .exp-item, .edu-item {
+    grid-template-columns: 80px 1fr;
+    gap: 0.6rem;
+  }
+
+  .sh {
+    font-size: 0.55rem;
+  }
+
+  .sk-chip, .ptag {
+    font-size: 0.55rem;
+    padding: 2px 6px;
+  }
+
+  .ticker {
+    padding: 0.4rem 0;
+  }
+
+  .ti-item {
+    font-size: 0.55rem;
+  }
+
+  .foot {
+    padding: 0.8rem 1rem;
+  }
+
+  .foot p {
+    font-size: 0.55rem;
+  }
+}
+
+/* Small mobile devices (360px and below) */
+@media (max-width: 360px) {
+  .hero-name {
+    font-size: clamp(1.3rem, 4vw, 2rem);
+  }
+
+  .btns {
+    gap: 0.4rem;
+  }
+
+  .bp, .bo {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.6rem;
+  }
+
+  .stats {
+    gap: 0.4rem;
+  }
+
+  .sec {
+    padding: 1rem 0.8rem;
+  }
+}
+
+/* ==========================================
+   15. UTILITY CLASSES & ANIMATIONS
+   ========================================== */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid var(--pu);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .ticker,
+  .btns {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

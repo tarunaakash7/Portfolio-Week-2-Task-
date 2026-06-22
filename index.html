@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T Aakash - Full Stack Developer Portfolio</title>
+  <meta name="description" content="Professional portfolio of Tarun Aakash, Full Stack Developer & CS Student from Chennai, India">
+  <meta name="keywords" content="developer, portfolio, python, javascript, react, nodejs">
+  <meta name="author" content="Tarun Aakash">
+  
+  <!-- Link to External CSS File -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="port">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="glow1"></div>
+      <div class="glow2"></div>
+      <div class="badge">
+        <span class="pulse"></span>
+        Open to opportunities
+      </div>
+      <div class="hero-name">
+        <span class="hi">// hello world, I'm</span>
+        <span class="name-text">T AAKASH</span>
+      </div>
+      <div class="hero-role">Full Stack Developer · CS Student</div>
+      <div class="hero-loc">📍 Chennai, India &nbsp;·&nbsp; SRM Institute of Science & Technology</div>
+      <p class="hero-desc">Motivated CS student with strong backend skills in Python, Node.js, Flask & SQL, and frontend skills in React, HTML, CSS & JavaScript. Building real-world projects and growing into a skilled Software Engineer.</p>
+      <div class="btns">
+        <button class="bp">View Projects</button>
+        <a href="https://github.com/Aakash-1247" target="_blank" class="bo">GitHub ↗</a>
+      </div>
+      <div class="stats">
+        <div class="sbox">
+          <div class="sn" style="color:var(--pu)">3+</div>
+          <div class="sl">Projects</div>
+        </div>
+        <div class="sbox">
+          <div class="sn" style="color:var(--cy)">2</div>
+          <div class="sl">Internships</div>
+        </div>
+        <div class="sbox">
+          <div class="sn" style="color:var(--gr)">5+</div>
+          <div class="sl">Certifications</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER SECTION -->
+    <div class="ticker">
+      <div class="ti" id="ticker"></div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <section class="sec">
+      <div class="sh">Skills</div>
+      <div class="sk-cats" id="sk-cats"></div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="sec sep">
+      <div class="sh">Projects</div>
+      <div class="pg" id="pg"></div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="sec sep">
+      <div class="sh">Experience</div>
+      <div id="ex"></div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="sec sep">
+      <div class="sh">Education</div>
+      <div id="edu"></div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="sec sep">
+      <div class="sh">Certifications</div>
+      <div class="cert-grid" id="certs"></div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="sec sep">
+      <div class="sh">Leadership & Achievements</div>
+      <div class="ach-list" id="ach"></div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <div class="csec">
+      <div class="sh">Contact</div>
+      <div class="ch">Let's build<br><span>something great.</span></div>
+      <p class="cp">Open to internships, collaborations & real-world projects. Replies within 24 hrs.</p>
+      <div>
+        <a href="mailto:tarunaakash7@gmail.com" class="cl">
+          tarunaakash7@gmail.com 
+          <span class="cb">Email ↗</span>
+        </a>
+        <a href="https://github.com/Aakash-1247" target="_blank" class="cl">
+          github.com/Aakash-1247 
+          <span class="cb">GitHub ↗</span>
+        </a>
+        <a href="tel:+918778980782" class="cl">
+          +91 8778980782 
+          <span class="cb">Phone ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="foot">
+      <p>© 2026 <span class="fn">T. Aakash</span></p>
+      <p>Full Stack Developer</p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // TICKER - Skills scrolling animation
+    const tks = ['C', 'C++', 'Python', 'Java', 'Node.js', 'Flask', 'React', 'JavaScript', 'HTML/CSS', 'SQL', 'MongoDB', 'ML Algorithms', 'Data Analytics'];
+    const te = document.getElementById('ticker');
+    [...tks, ...tks, ...tks, ...tks].forEach(t => {
+      const d = document.createElement('div');
+      d.className = 'ti-item';
+      d.innerHTML = `<span class="ti-d">◆</span>${t}`;
+      te.appendChild(d);
+    });
+
+    // SKILLS - Populate skill categories
+    const skillCats = [
+      {
+        title: 'Programming Languages',
+        chips: [
+          { t: 'C', c: 'pu' },
+          { t: 'C++', c: 'pu' },
+          { t: 'Python', c: 'cy' },
+          { t: 'Java (Basic)', c: 'cy' },
+          { t: 'JavaScript', c: 'or' }
+        ]
+      },
+      {
+        title: 'Frontend',
+        chips: [
+          { t: 'React', c: 'gr' },
+          { t: 'HTML', c: 'or' },
+          { t: 'CSS', c: 'or' },
+          { t: 'JavaScript', c: 'or' }
+        ]
+      },
+      {
+        title: 'Backend & APIs',
+        chips: [
+          { t: 'Node.js', c: 'cy' },
+          { t: 'Flask', c: 'cy' },
+          { t: 'CRUD Operations', c: 'cy' },
+          { t: 'REST APIs', c: 'pi' }
+        ]
+      },
+      {
+        title: 'Databases',
+        chips: [
+          { t: 'SQL', c: 'or' },
+          { t: 'MongoDB', c: 'gr' }
+        ]
+      },
+      {
+        title: 'ML & Data',
+        chips: [
+          { t: 'ML Algorithms', c: 'pu' },
+          { t: 'Data Analytics', c: 'pi' }
+        ]
+      },
+      {
+        title: 'Core Strengths',
+        chips: [
+          { t: 'Problem Solving', c: 'gr' },
+          { t: 'Analytical Thinking', c: 'gr' },
+          { t: 'Team Work', c: 'gr' },
+          { t: 'Time Management', c: 'gr' }
+        ]
+      }
+    ];
+    const sc = document.getElementById('sk-cats');
+    skillCats.forEach(cat => {
+      sc.innerHTML += `<div><div class="sk-cat-title">${cat.title}</div><div class="sk-chips">${cat.chips.map(c => `<span class="sk-chip ${c.c}">${c.t}</span>`).join('')}</div></div>`;
+    });
+
+    // PROJECTS - Populate project cards
+    const projs = [
+      {
+        num: '01',
+        t: 'MultiAgent Simulation Sandbox',
+        d: 'Decentralized multi-agent rescue simulation using tiled environment. Implemented Q-Learning to train heterogeneous agents for disaster response. Achieved 100% survivor recovery in demonstrations.',
+        tags: [
+          { t: 'Python', c: 'cy' },
+          { t: 'Q-Learning', c: 'pu' },
+          { t: 'ML', c: 'pi' }
+        ],
+        ac: 'pu'
+      },
+      {
+        num: '02',
+        t: 'Student Database Management',
+        d: 'Full CRUD system to store, retrieve, update and delete student records with data validation, search operations and record management.',
+        tags: [
+          { t: 'Python', c: 'cy' },
+          { t: 'SQL', c: 'or' },
+          { t: 'Backend', c: 'gr' }
+        ],
+        ac: 'cy'
+      },
+      {
+        num: '03',
+        t: 'Bus Booking Management',
+        d: 'Complete bus booking system managing schedules, seat availability, passenger details and ticket bookings with cancellation and seat allocation.',
+        tags: [
+          { t: 'Backend', c: 'gr' },
+          { t: 'SQL', c: 'or' },
+          { t: 'Data Validation', c: 'pi' }
+        ],
+        ac: 'gr'
+      }
+    ];
+    const p = document.getElementById('pg');
+    projs.forEach(pr => {
+      p.innerHTML += `<div class="pc ${pr.ac}"><div class="pn">${pr.num}</div><div class="pt">${pr.t}</div><div class="pd">${pr.d}</div><div class="ptags">${pr.tags.map(t => `<span class="ptag ${t.c}">${t.t}</span>`).join('')}</div></div>`;
+    });
+
+    // EXPERIENCE - Populate experience items
+    const exps = [
+      {
+        d: 'Dec 2025\n– Jan 2026',
+        r: 'Software Developer Intern',
+        c: 'Cognifyz Technology · Virtual',
+        cl: 'var(--cy)',
+        desc: 'Worked on real-world software development tasks as part of a virtual internship program.'
+      },
+      {
+        d: '2025',
+        r: 'Technology Virtual Intern',
+        c: 'Deloitte (Forage)',
+        cl: 'var(--pu)',
+        desc: 'Completed two technology simulation tasks replicating real-world Deloitte client scenarios. Analyzed technical requirements, proposed scalable solutions, and applied system design & data-driven decision-making.'
+      }
+    ];
+    const ex = document.getElementById('ex');
+    exps.forEach(e => {
+      ex.innerHTML += `<div class="exp-item"><div class="ed" style="white-space:pre">${e.d}</div><div><div class="er">${e.r}</div><div class="ec" style="color:${e.cl}">${e.c}</div><div class="edesc">${e.desc}</div></div></div>`;
+    });
+
+    // EDUCATION - Populate education items
+    const edus = [
+      {
+        yr: '2023–2027',
+        deg: 'B.Tech – Computer Science & Engineering',
+        inst: 'SRM Institute of Science and Technology, Chennai (Vadapalani)',
+        cl: 'var(--pu)',
+        note: 'Currently pursuing undergraduate degree.'
+      },
+      {
+        yr: '2023',
+        deg: 'Senior Secondary (XII) – Science',
+        inst: 'Mat. Hr. Sec School · State Board',
+        cl: 'var(--cy)',
+        note: ''
+      },
+      {
+        yr: '2021',
+        deg: 'Secondary (X)',
+        inst: 'Mat. Hr. Sec School · State Board',
+        cl: 'var(--gr)',
+        note: ''
+      }
+    ];
+    const eduEl = document.getElementById('edu');
+    edus.forEach(e => {
+      eduEl.innerHTML += `<div class="edu-item"><div class="edu-yr">${e.yr}</div><div><div class="edu-deg">${e.deg}</div><div class="edu-inst" style="color:${e.cl}">${e.inst}</div>${e.note ? `<div class="edu-note">${e.note}</div>` : ''}</div></div>`;
+    });
+
+    // CERTIFICATIONS - Populate certification cards
+    const certs = [
+      { name: 'Diploma in Computer Application', by: 'DCA', c: 'pu' },
+      { name: 'Honours in Full Stack Development', by: 'HDCA', c: 'cy' },
+      { name: 'Oracle Cloud Infrastructure 2025 AI Foundations', by: 'Oracle', c: 'or' },
+      { name: 'Google Data Analytics', by: 'Google · Coursera', c: 'gr' },
+      { name: 'Front-End Developer', by: 'IBM · Coursera', c: 'pi' }
+    ];
+    const ce = document.getElementById('certs');
+    certs.forEach(c => {
+      ce.innerHTML += `<div class="cert-card ${c.c}"><div class="cert-name">${c.name}</div><div class="cert-by">${c.by}</div></div>`;
+    });
+
+    // ACHIEVEMENTS - Populate achievement items
+    const achs = [
+      { t: 'Designer at Design & Innovation Club — SRMIST.', c: 'var(--pu)' },
+      { t: 'Published research paper on MultiAgent Simulation Sandbox using Tiled.', c: 'var(--cy)' },
+      { t: 'Qualified for Round 2 of Smart India Hackathon (SIH) — strong problem-solving, teamwork and innovation.', c: 'var(--gr)' },
+      { t: 'Spearheaded five college symposiums gathering sponsors.', c: 'var(--or)' }
+    ];
+    const achEl = document.getElementById('ach');
+    achs.forEach(a => {
+      achEl.innerHTML += `<div class="ach-item"><div class="ach-dot" style="background:${a.c}"></div><div class="ach-text">${a.t}</div></div>`;
+    });
+  </script>
+</body>
+</html>
